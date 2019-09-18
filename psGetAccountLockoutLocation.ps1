@@ -1,19 +1,20 @@
 <#
-Script writen by Kehinde Adetutu (kadetutu@suffolk.com) - 9/18/2017
+Script writen by Kehinde Adetutu (kenny.adetutu@gmail.com) - 9/18/2017
 
 .DESCRIPTION
     This script parse security logs on specified Domain Controllers and collect logs related to account lockout. It then use
-	the logs collected to display list of possible lockout locations.
+	the logs collected to display list of possible lockout locations. Microsoft LogParser library needs to be install on the host where
+	this script is run.
  
 .PARAMETER Names
     Username - logon name of user whose's lockout is being investigated.
 	DCList - an array list of Domain Controller names to search for lockout logs.
  
 .EXAMPLE
-    .\psGetAccountLockoutLocation.ps1 -u kadetutu -dl BOS-DC01,BOS-DC02,BOS-DC1,BOS-DC2
+    .\psGetAccountLockoutLocation.ps1 -u kadetutu -dl DC01,DC02,DC03,DC04
  
 .EXAMPLE
-    .\psGetAccountLockoutLocation.ps1 -u kadetutu -dlist BOS-DC01,BOS-DC02,BOS-DC1,BOS-DC2
+    .\psGetAccountLockoutLocation.ps1 -u kadetutu -dlist DC01,DC02,DC03,DC04
  
 #>
 

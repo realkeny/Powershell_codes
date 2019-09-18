@@ -1,17 +1,17 @@
 <#
-Script writen by Kehinde Adetutu (kadetutu@suffolk.com) - 7/25/2019
+Script writen by Kehinde Adetutu (kenny.adetutu@gmail.com) - 7/25/2019
 
 .DESCRIPTION
-    Add users who are members of an AD (source) group from another AD (destination) group.
+    Remove users who are members of an AD (source) group from another AD (destination) group.
  
 .PARAMETER Name
     Two mandatory parameters are requires (source and destination AD group names).
  
 .EXAMPLE
-    .\psRemoveUsersInOneGroupFromAnotherGroup.ps1 -s "_Apps_Citrix_Timberline" -d "Citrix_Okta_MFA"
+    .\psRemoveUsersInOneGroupFromAnotherGroup.ps1 -s "_Apps_Citrix_Staged" -d "Citrix_Cloud_Staff"
  
 .EXAMPLE
-    .\psRemoveUsersInOneGroupFromAnotherGroup.ps1 -source "_Apps_Citrix_Timberline" -destination "Citrix_Okta_MFA"
+    .\psRemoveUsersInOneGroupFromAnotherGroup.ps1 -source "_Apps_Citrix_Staged" -destination "Citrix_Cloud_Staff"
  
 #>
 
@@ -41,7 +41,7 @@ if($source_group -ne "" -And $destination_group -ne "")
 	$count = 0
 	foreach($user in $src_group_users)
 	{
-		#write-host "checking $($user)..."
+		# check if user is in the destination AD group.
 		if($dst_group_users -contains $user)
 		{
 			$count++

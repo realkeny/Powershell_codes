@@ -1,5 +1,7 @@
- ## This script pull all suffolkconstruction.com domain group policcy report and export them to a CSV file.
- ## Writen by Kehinde Adetutu (kadetutu@suffolk.com) - 8/28/2019
+ ## This script pull all specified domain group policy report and export them to a CSV file.
+ ## Writen by Kehinde Adetutu (kenny.adetutu@gmail.com) - 8/28/2019
+
+ $domain_name = "your domain here"
 function Get-GPOLink {
  
 <#
@@ -84,4 +86,4 @@ Object (GPO) is linked to.
  
     }
  }
- Get-GPO -Domain Suffolkconstruction.com -All| Get-GPOLink | export-csv GPOResult2.csv
+ Get-GPO -Domain $domain_name -All| Get-GPOLink | export-csv GPOResult2.csv

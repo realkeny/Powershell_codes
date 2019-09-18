@@ -1,5 +1,5 @@
 <#
-Script writen by Kehinde Adetutu (kadetutu@suffolk.com) - 11/08/2018
+Script writen by Kehinde Adetutu (kenny.adetutu@gmail.com) - 11/08/2018
 
 .DESCRIPTION
     Add users who are members of an AD (source) group to another AD (destination) group.
@@ -8,10 +8,10 @@ Script writen by Kehinde Adetutu (kadetutu@suffolk.com) - 11/08/2018
     Two mandatory parameters are requires (source and destination AD group names).
  
 .EXAMPLE
-    .\psAddUsersToGroupFromAnotherGroup.ps1 -s "_Apps_Citrix_Timberline" -d "Citrix_Okta_MFA"
+    .\psAddUsersToGroupFromAnotherGroup.ps1 -s "_Apps_Citrix_Office" -d "Citrix_Okta_Apps"
  
 .EXAMPLE
-    .\psAddUsersToGroupFromAnotherGroup.ps1 -source "_Apps_Citrix_Timberline" -destination "Citrix_Okta_MFA"
+    .\psAddUsersToGroupFromAnotherGroup.ps1 -source "_Apps_Citrix_Office" -destination "Citrix_Okta_apps"
  
 #>
 
@@ -40,7 +40,7 @@ if($source_group -ne "" -And $destination_group -ne "")
 	$count = 0
 	foreach($user in $src_group_users)
 	{
-		#write-host "checking $($user)..."
+		# check if user is not in the destination AD group.
 		if($dst_group_users -notcontains $user)
 		{
 			$count++
